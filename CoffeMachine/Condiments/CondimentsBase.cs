@@ -11,7 +11,7 @@ namespace CoffeMachine.Condiments
     {
         protected static string TYPE = "";
         private static double COST = 0;
-        private static string DESCRIPTION = "";
+        private static string descr;
         public BeverageBase beverageBase;
     }
 }

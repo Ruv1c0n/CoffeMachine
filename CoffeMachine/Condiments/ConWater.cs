@@ -12,7 +12,6 @@ namespace CoffeMachine.Condiments
         protected static string TYPE = "Основа";
         private static double COST = 7;
         private static string DESCRIPTION = " + вода 100мл";
-        BeverageBase beverageBase;
 
         public ConWater(BeverageBase beverage)
         {

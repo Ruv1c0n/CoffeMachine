@@ -8,7 +8,7 @@ namespace CoffeMachine.Beverage
 {
     public abstract class BeverageBase
     {
-        protected string DESCRIPTION = "";
+        protected string DESCRIPTION;
         public string GetDescription()
         {
             return DESCRIPTION;

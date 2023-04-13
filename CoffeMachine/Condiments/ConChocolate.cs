@@ -12,7 +12,6 @@ namespace CoffeMachine.Condiments
         protected static string TYPE = "Основа";
         private static double COST = 100;
         private static string DESCRIPTION = " + порция шоколада 70гр";
-        BeverageBase beverageBase;
 
         public ConChocolate(BeverageBase beverage)
         {
