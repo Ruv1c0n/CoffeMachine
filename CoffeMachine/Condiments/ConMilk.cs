@@ -10,7 +10,7 @@ namespace CoffeMachine.Condiments
     class ConMilk : CondimentsBase
     {
         protected static string TYPE = "Опционально";
-        private static double COST = 10;
+        private static double COST = 20;
         private static string DESCRIPTION = " + молоко 100мл";
         BeverageBase beverageBase;
 
