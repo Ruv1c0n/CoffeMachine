@@ -1,5 +1,4 @@
-﻿using CoffeMachine.Beverage;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,13 +6,16 @@ using System.Threading.Tasks;
 
 namespace CoffeMachine.Condiments
 {
-    class ConSyrup : CondimentsBase
+    class Empty : CondimentsBase
     {
-        protected static string SYRUP_TYPE = "";
         protected static string TYPE = "Опционально";
-        protected static double COST = 5;
-        protected static string descr = " + порция сиропа 10гр";
-        protected string out_description = "Сироп";
+        private static double COST = 0;
+        private static string descr = "";
+        protected string out_description = "Ничего";
+
+        public Empty()
+        {
+        }
 
         public override double GetCost()
         {

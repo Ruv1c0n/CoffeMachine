@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoffeMachine.Beverage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +9,12 @@ namespace CoffeMachine.CoffeMachine
 {
     class SelectCondiments: IStrategy
     {
-        public int Select(Dictionary<string, int> Condiments, Dictionary<string, int> Syrup=null)
+        public int Select(Dictionary<BeverageBase, int> Condiments, Dictionary<BeverageBase, int> Syrup=null)
         {
 
             foreach (var bev in Condiments)
             {
-                Console.WriteLine("\t{0} - {1}", bev.Key, bev.Value);
+                Console.WriteLine("\t{0} - {1}", bev.Key.GetDescription(), bev.Value);
             }
 
             int num_condiment = Convert.ToInt32(Console.ReadLine());
@@ -23,7 +24,7 @@ namespace CoffeMachine.CoffeMachine
             {
                 foreach (var bev in Syrup)
                 {
-                    Console.WriteLine("\t{0} - {1}", bev.Key, bev.Value);
+                    Console.WriteLine("\t{0} - {1}", bev.Key.GetDescription(), bev.Value);
                 }
                 num_condiment = Convert.ToInt32(Console.ReadLine());
             }

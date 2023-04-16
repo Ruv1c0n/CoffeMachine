@@ -10,16 +10,16 @@ namespace CoffeMachine.Condiments
     class SyrupVanila : ConSyrup
     {
         protected static string SYRUP_TYPE = "Ванильный";
+        protected string out_description = "Ваниль";
+
+        public SyrupVanila()
+        {
+        }
 
         public SyrupVanila(BeverageBase beverage)
         {
             this.beverageBase = beverage;
             DESCRIPTION = beverage.GetDescription() + descr + "(" + SYRUP_TYPE + ")";
-        }
-
-        public override double GetCost()
-        {
-            return this.beverageBase.GetCost() + COST;
         }
     }
 }

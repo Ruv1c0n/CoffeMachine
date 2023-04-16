@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoffeMachine.Beverage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace CoffeMachine.CoffeMachine
 {
     public interface IStrategy
     {
-        public int Select(Dictionary<string, int> list1, Dictionary<string, int> list2 = null);
+        public int Select(Dictionary<BeverageBase, int> list1, Dictionary<BeverageBase, int> list2 = null);
     }
 }

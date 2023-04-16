@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoffeMachine.Beverage
 {
-    internal class Americano : BeverageBase
+    class Americano : BeverageBase
     {
         public Americano()
         {
