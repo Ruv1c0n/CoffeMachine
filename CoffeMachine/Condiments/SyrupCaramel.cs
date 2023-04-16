@@ -9,12 +9,12 @@ namespace CoffeMachine.Condiments
 {
     internal class SyrupCaramel : ConSyrup
     {
-        protected static string SYRUP_TYPE = "Шоколадный";
+        protected static string SYRUP_TYPE = "Карамель";
 
         public SyrupCaramel(BeverageBase beverage)
         {
             this.beverageBase = beverage;
-            DESCRIPTION = beverage.GetDescription() + DESCRIPTION;
+            DESCRIPTION = beverage.GetDescription() + descr + "(" + SYRUP_TYPE + ")";
         }
 
         public override double GetCost()

@@ -12,6 +12,6 @@ namespace CoffeMachine.Condiments
         protected static string SYRUP_TYPE = "";
         protected static string TYPE = "Опционально";
         protected static double COST = 5;
-        protected static string DESCRIPTION = " + порция сиропа 10гр";
+        protected static string descr = " + порция сиропа 10гр";
     }
 }

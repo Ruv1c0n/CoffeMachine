@@ -11,7 +11,7 @@ namespace CoffeMachine
             CCoffeMachine cm = new CCoffeMachine();
             cm.Start();
             BeverageBase es = new Espresso();
-            BeverageBase ess = new ConSugar(es);
+            BeverageBase ess = new SyrupCaramel(es);
             print(ess);
         }
         private static void print(BeverageBase beverage)

@@ -11,12 +11,12 @@ namespace CoffeMachine.Condiments
     {
         protected static string TYPE = "Основа";
         private static double COST = 30;
-        private static string DESCRIPTION = " + порция кофе 7гр";
+        private static string descr = " + порция кофе 7гр";
 
         public ConCoffee(BeverageBase beverage)
         {
             this.beverageBase = beverage;
-            DESCRIPTION = beverage.GetDescription() + DESCRIPTION;
+            DESCRIPTION = beverage.GetDescription() + descr;
         }
 
         public override double GetCost()

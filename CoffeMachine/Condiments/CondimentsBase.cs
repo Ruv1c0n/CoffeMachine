@@ -9,9 +9,6 @@ namespace CoffeMachine.Condiments
 {
     abstract class CondimentsBase : BeverageBase
     {
-        protected static string TYPE = "";
-        private static double COST = 0;
-        private static string descr;
         public BeverageBase beverageBase;
     }
 }

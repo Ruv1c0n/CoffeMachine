@@ -14,7 +14,7 @@ namespace CoffeMachine.Condiments
         public SyrupVanila(BeverageBase beverage)
         {
             this.beverageBase = beverage;
-            DESCRIPTION = beverage.GetDescription() + DESCRIPTION;
+            DESCRIPTION = beverage.GetDescription() + descr + "(" + SYRUP_TYPE + ")";
         }
 
         public override double GetCost()
