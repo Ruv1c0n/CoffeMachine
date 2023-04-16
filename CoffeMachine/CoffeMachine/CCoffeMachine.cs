@@ -12,6 +12,7 @@ namespace CoffeMachine.CoffeMachine
         private Dictionary<string, int> beverageCondiments;
         private Dictionary<string, int> beverageSyrup;
         private IStrategy CoffeMachineStrategy;
+        public CoffeMashineCapacity capacity;
 
         public CCoffeMachine()
         {
@@ -45,6 +46,7 @@ namespace CoffeMachine.CoffeMachine
                 {"Ванильный сироп", 3},
             };
             CoffeMachineStrategy = new SelectBeverage();
+            capacity = new CoffeMashineCapacity();
         }
 
         public void Start()
@@ -55,14 +57,14 @@ namespace CoffeMachine.CoffeMachine
         }
         public void SelectBeverage()
         {
-            CoffeMachineStrategy.Select(beverageDrink);
+            CoffeMachineStrategy.Select(capacity, beverageDrink, null);
             CoffeMachineStrategy = new SelectCondiments();
             AddCondiments();
         }
 
         public void AddCondiments() {
             Console.WriteLine("Выберите желаемый наполнитель: 1 - 5, 0 - если не хотите брать наполнитель");
-            CoffeMachineStrategy.Select(beverageCondiments, beverageSyrup);
+            CoffeMachineStrategy.Select(capacity, beverageCondiments, beverageSyrup);
         }
 
         public void Process() { }

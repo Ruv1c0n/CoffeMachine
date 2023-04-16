@@ -8,7 +8,7 @@ namespace CoffeMachine.CoffeMachine
 {
     class SelectCondiments: IStrategy
     {
-        public int Select(Dictionary<string, int> Condiments, Dictionary<string, int> Syrup=null)
+        public int Select(CoffeMashineCapacity capacity, Dictionary<string, int> Condiments, Dictionary<string, int> Syrup)
         {
 
             foreach (var bev in Condiments)
@@ -27,7 +27,9 @@ namespace CoffeMachine.CoffeMachine
                 }
                 num_condiment = Convert.ToInt32(Console.ReadLine());
             }
-            
+
+            capacity.Milk();
+
             return num_condiment;
         }
     }
