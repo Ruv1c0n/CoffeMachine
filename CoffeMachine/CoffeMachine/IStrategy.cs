@@ -8,6 +8,6 @@ namespace CoffeMachine.CoffeMachine
 {
     public interface IStrategy
     {
-        int Select(Dictionary<string, int> list);
+        public int Select(Dictionary<string, int> beverageCond, Dictionary<string, int> beverageSyrup = null);
     }
 }
