@@ -9,7 +9,7 @@ namespace CoffeMachine.CoffeMachine
     public class CCoffeMachine
     {
         Dictionary<string, int> beverage;
-
+        private IStrategy CoffeMachineStrategy;
 
         public CCoffeMachine()
         {
@@ -31,16 +31,13 @@ namespace CoffeMachine.CoffeMachine
         public void Start()
         {
             Console.WriteLine("\n\tДобро пожаловать!\nВыберите желаемый напиток, нажав на подходящую кнопку.\n");
+            CoffeMachineStrategy = new SelectBeverage();
             SelectBeverage();
         }
         public void SelectBeverage()
         {
-            foreach (var beverage in this.beverage)
-            {
-                Console.WriteLine("\t{0} - {1}", beverage.Key, beverage.Value);
-            }
-            int task = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine();
+            CoffeMachineStrategy.Select(beverage);
+            CoffeMachineStrategy = new SelectCondiments();
         }
         public void AddCondiments() {
             
