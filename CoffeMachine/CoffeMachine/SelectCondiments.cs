@@ -8,10 +8,10 @@ namespace CoffeMachine.CoffeMachine
 {
     class SelectCondiments: IStrategy
     {
-        public int Select(Dictionary<string, int> beverageCond, Dictionary<string, int> beverageSyrup=null)
+        public int Select(Dictionary<string, int> Condiments, Dictionary<string, int> Syrup=null)
         {
 
-            foreach (var bev in beverageCond)
+            foreach (var bev in Condiments)
             {
                 Console.WriteLine("\t{0} - {1}", bev.Key, bev.Value);
             }
@@ -21,7 +21,7 @@ namespace CoffeMachine.CoffeMachine
 
             if (num_condiment == 1)
             {
-                foreach (var bev in beverageSyrup)
+                foreach (var bev in Syrup)
                 {
                     Console.WriteLine("\t{0} - {1}", bev.Key, bev.Value);
                 }

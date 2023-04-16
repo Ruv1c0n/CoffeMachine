@@ -8,9 +8,9 @@ namespace CoffeMachine.CoffeMachine
 {
     class SelectBeverage : IStrategy
     {
-        public int Select(Dictionary<string, int> beverage)
+        public int Select(Dictionary<string, int> Beverage, Dictionary<string, int> list2)
         {
-            foreach (var bev in beverage)
+            foreach (var bev in Beverage)
             {
                 Console.WriteLine("\t{0} - {1}", bev.Key, bev.Value);
             }
