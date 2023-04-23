@@ -8,93 +8,171 @@ namespace CoffeMachine.CoffeMachine
 {
     public class CoffeMachineCapacity
     {
-        static int water_cap = 1500;
+        static int water_cap = 0;
         static int coffee_cap = 500;
         static int milk_cap = 1000;
         static int sugar_cap = 300;
         static int cocoa_cap = 200;
         static int chocolate_cap = 300;
         static int syrop_vanil_cap = 200;
-        static int syrop_chocolate_cap = 200;
+        static int syrop_chocolate_cap = 0;
         static int syrop_caramel_cap = 200;
 
+        private bool isPossible(int val, int count = 1)
+        {
+            return val >= count;
+        }
+        public bool Espresso()
+        {
+            if (isPossible(coffee_cap) && isPossible(water_cap))
+            {
+                water_cap--;
+                coffee_cap--;
+                return true;
+            }
+            return false;
+        }
+        public bool BoiledWater()
+        {
+            if (isPossible(water_cap)){
+                water_cap--;
+                return true;
+            }
+            return false;
+        }
+        public bool Americano()
+        {
 
-        public void Espresso()
-        {
-            water_cap--;
-            coffee_cap--;
+            if (isPossible(coffee_cap) && isPossible(water_cap, 2))
+            {
+                water_cap-=2;
+                coffee_cap--;
+                return true;
+            }
+            return false;
         }
-        public void BoiledWater()
+        public bool Cappuccino()
         {
-            water_cap--;
+            if (isPossible(coffee_cap) && isPossible(water_cap) && isPossible(milk_cap))
+            {
+                water_cap--;
+                coffee_cap--;
+                milk_cap--;
+                return true;
+            }
+            return false;
         }
-        public void Americano()
+        public bool Cocoa()
         {
-            water_cap -= 2;
-            coffee_cap--;
+            if (isPossible(cocoa_cap) && isPossible(milk_cap) && isPossible(sugar_cap))
+            {
+                milk_cap--;
+                cocoa_cap--;
+                sugar_cap--;
+                return true;
+            }
+            return false;
         }
-        public void Cappuccino()
+        public bool Doppio()
         {
-            water_cap--;
-            coffee_cap--;
-            milk_cap--;
+            if (isPossible(coffee_cap, 2) && isPossible(water_cap, 2))
+            {
+                water_cap-=2;
+                coffee_cap-=2;
+                return true;
+            }
+            return false;
         }
-        public void Cocoa()
+        public bool FlatWhite()
         {
-            milk_cap--;
-            cocoa_cap--;
-            sugar_cap--;
+            if (isPossible(coffee_cap) && isPossible(water_cap) && isPossible(milk_cap, 2))
+            {
+                water_cap--;
+                coffee_cap--;
+                milk_cap-=2;
+                return true;
+            }
+            return false;
         }
-        public void Doppio()
+        public bool HotChocolate()
         {
-            water_cap -= 2;
-            coffee_cap -= 2;
+            if (isPossible(milk_cap) && isPossible(chocolate_cap))
+            {
+                milk_cap--;
+                chocolate_cap--;
+                return true;
+            }
+            return false;
         }
-        public void FlatWhite()
+        public bool Latte()
         {
-            water_cap--;
-            coffee_cap--;
-            milk_cap -= 2;
+            if (isPossible(coffee_cap) && isPossible(water_cap) && isPossible(milk_cap, 2))
+            {
+                water_cap--;
+                coffee_cap--;
+                milk_cap -= 2;
+                return true;
+            }
+            return false;
         }
-        public void HotChocolate()
+        public bool Macciato()
         {
-            milk_cap--;
-            chocolate_cap--;
+            if (isPossible(coffee_cap, 2) && isPossible(water_cap, 2) && isPossible(milk_cap, 2))
+            {
+                water_cap-=2;
+                coffee_cap-=2;
+                milk_cap-=2;
+                return true;
+            }
+            return false;
         }
-        public void Latte()
+        public bool Milk()
         {
-            water_cap--;
-            coffee_cap--;
-            milk_cap -= 2;
+            if (isPossible(milk_cap))
+            {
+                milk_cap--;
+                return true;
+            }
+            return false;
         }
-        public void Macciato()
+        public bool Sugar()
         {
-            water_cap -= 2;
-            coffee_cap -= 2;
-            milk_cap -= 2;
+
+            if (isPossible(sugar_cap))
+            {
+                sugar_cap--;
+                return true;
+            }
+            return false;
         }
-        public void Milk()
+        public bool VanillaSyrup()
         {
-            milk_cap--;
+            if (isPossible(syrop_vanil_cap)) {
+                syrop_vanil_cap--;
+                return true;
+            }
+            return false;
         }
-        public void Sugar()
+        public bool ChocolateSyrup()
         {
-            sugar_cap--;
+            if (isPossible(syrop_chocolate_cap))
+            {
+                syrop_chocolate_cap--;
+                return true;
+            }
+            return false;
         }
-        public void VanillaSyrup()
+        public bool CaramelSyrup()
         {
-            syrop_vanil_cap--;
-        }
-        public void ChocolateSyrup()
-        {
-            syrop_chocolate_cap--;
-        }
-        public void CaramelSyrup()
-        {
-            syrop_caramel_cap--;
+            if (isPossible(syrop_caramel_cap))
+            {
+                syrop_caramel_cap--;
+                return true;
+            }
+            return false;
         }
 
-        public void Print_ingridients()
+        public void print_ingridients()
         {
 
             Console.WriteLine("Количество Воды : " , water_cap);

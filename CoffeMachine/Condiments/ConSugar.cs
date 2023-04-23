@@ -22,6 +22,7 @@ namespace CoffeMachine.Condiments
         }
         public ConSugar()
         {
+            DESCRIPTION = "Сахар";
         }
 
         public override double GetCost()

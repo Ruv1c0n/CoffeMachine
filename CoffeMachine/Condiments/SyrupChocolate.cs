@@ -20,6 +20,7 @@ namespace CoffeMachine.Condiments
         }
         public SyrupChocolate()
         {
+            DESCRIPTION = "Шоколадный";
         }
 
     }

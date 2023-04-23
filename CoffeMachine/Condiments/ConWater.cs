@@ -18,6 +18,10 @@ namespace CoffeMachine.Condiments
             this.beverageBase = beverage;
             DESCRIPTION = beverage.GetDescription() + descr;
         }
+        public ConWater()
+        {
+            DESCRIPTION = "Вода";
+        }
         public override double GetCost()
         {
             return this.beverageBase.GetCost() + COST;

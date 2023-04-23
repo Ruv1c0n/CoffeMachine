@@ -14,6 +14,7 @@ namespace CoffeMachine.Condiments
 
         public SyrupCaramel()
         {
+            DESCRIPTION = "Карамельный";
         }
 
         public SyrupCaramel(BeverageBase beverage)

@@ -9,64 +9,130 @@ namespace CoffeMachine.CoffeMachine
 {
     class SelectBeverage : ISelect
     {
-        public BeverageBase Select(CoffeMachineCapacity capacity, Dictionary<int, BeverageBase> beverage, Dictionary<int, BeverageBase> list2)
+        public BeverageBase Select(CoffeMachineCapacity capacity, Dictionary<int, BeverageBase> beverage, Dictionary<int, BeverageBase> list2, BeverageBase drink)
         {
             foreach (var bev in beverage)
             {
                 Console.WriteLine("\t{0} - {1}", bev.Key, bev.Value.GetDescription());
             }
-            int drink = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Выйти");
+            string drink_num = Console.ReadLine();
 
-            switch (drink)
+            switch (drink_num)
             {
-                case 1:
+                case "1":
                     {
-                        capacity.BoiledWater();
-                        return new BoiledWater();
+                        if (capacity.BoiledWater())
+                        {
+                            return new Beverage.BoiledWater();
+                        }
+                        else
+                        {
+                            return new Beverage.Empty();
+                        }
                     }
-                case 2:
+                case "2":
                     {
-                        capacity.Espresso();
-                        return new Espresso();
+                        if (capacity.Espresso())
+                        {
+                            return new Beverage.Espresso();
+                        }
+                        else
+                        {
+                            return new Beverage.Empty();
+                        }
                     }
-                case 3:
+                case "3":
                     {
-                        capacity.Americano();
-                        return new Americano();
+                        if (capacity.Americano())
+                        {
+                            return new Beverage.Americano();
+                        }
+                        else
+                        {
+                            return new Beverage.Empty();
+                        }
                     }
-                case 4:
+                case "4":
                     {
-                        capacity.Cappuccino();
-                        return new Cappuccino();
+                        if (capacity.Cappuccino())
+                        {
+                            return new Beverage.Cappuccino();
+                        }
+                        else
+                        {
+                            return new Beverage.Empty();
+                        }
                     }
-                case 5:
+                case "5":
                     {
-                        capacity.Latte();
-                        return new Latte();
+                        if (capacity.Latte())
+                        {
+                            return new Beverage.Latte();
+                        }
+                        else
+                        {
+                            return new Beverage.Empty();
+                        }
                     }
-                case 6:
+                case "6":
                     {
-                        capacity.HotChocolate();
-                        return new HotChocolate();
+                        if (capacity.HotChocolate())
+                        {
+                            return new Beverage.HotChocolate();
+                        }
+                        else
+                        {
+                            return new Beverage.Empty();
+                        }
                     }
-                case 7:
+                case "7":
                     {
-                        capacity.Cocoa();
-                        return new Cocoa();
+                        if (capacity.Cocoa())
+                        {
+                            return new Beverage.Cocoa();
+                        }
+                        else
+                        {
+                            return new Beverage.Empty();
+                        }
                     }
-                case 8:
+                case "8":
                     {
-                        capacity.Macciato();
-                        return new Macciato();
+                        if (capacity.Macciato())
+                        {
+                            return new Beverage.Macciato();
+                        }
+                        else
+                        {
+                            return new Beverage.Empty();
+                        }
                     }
-                case 9:
+                case "9":
                     {
-                        capacity.FlatWhite();
-                        return new FlatWhite();
+                        if (capacity.Doppio())
+                        {
+                            return new Beverage.Doppio();
+                        }
+                        else
+                        {
+                            return new Beverage.Empty();
+                        }
+                    }
+                case "10":
+                    {
+                        if (capacity.FlatWhite())
+                        {
+                            return new Beverage.FlatWhite();
+                        }
+                        else
+                        {
+                            return new Beverage.Empty();
+                        }
                     }
                 default:
                     {
-                        return new BoiledWater();
+                        return null;
                     }
             }
         }

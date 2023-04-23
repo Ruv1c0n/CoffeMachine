@@ -15,6 +15,10 @@ namespace CoffeMachine.Condiments
         protected static string descr = " + порция сиропа 10гр";
         protected string out_description = "Сироп";
 
+        public ConSyrup()
+        {
+            DESCRIPTION = "Сироп";
+        }
         public override double GetCost()
         {
             return this.beverageBase.GetCost() + COST;

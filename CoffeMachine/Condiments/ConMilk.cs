@@ -22,6 +22,7 @@ namespace CoffeMachine.Condiments
 
         public ConMilk()
         {
+            DESCRIPTION = "Молоко";
         }
 
         public override double GetCost()

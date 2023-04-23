@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoffeMachine.Beverage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,12 @@ namespace CoffeMachine.Condiments
 
         public Empty()
         {
+            DESCRIPTION = "Ничего";
+        }
+
+        public Empty(BeverageBase beverage)
+        {
+            this.beverageBase = beverage;
         }
 
         public override double GetCost()

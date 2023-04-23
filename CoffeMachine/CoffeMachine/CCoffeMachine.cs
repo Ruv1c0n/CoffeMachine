@@ -15,7 +15,7 @@ namespace CoffeMachine.CoffeMachine
         private Dictionary<int, BeverageBase> beverageSyrup;
         private ISelect CoffeMachineStrategy;
         public CoffeMachineCapacity capacity;
-        private List<BeverageBase> drink;
+        private BeverageBase drink;
 
         public CCoffeMachine()
         {
@@ -49,30 +49,64 @@ namespace CoffeMachine.CoffeMachine
             };
             CoffeMachineStrategy = new SelectBeverage();
             capacity = new CoffeMachineCapacity();
-            drink = new List<BeverageBase>();
+            drink = new Beverage.Empty();
         }
 
         public void Start()
         {
-            Console.WriteLine("\n\tДобро пожаловать!\nВыберите желаемый напиток, нажав на подходящую кнопку.\n");
+            Console.WriteLine("\n\tДобро пожаловать!\nВыберите желаемый напиток, нажав на подходящую кнопку.");
+            Console.ReadLine();
             CoffeMachineStrategy = new SelectBeverage();
             SelectBeverage();
         }
         public void SelectBeverage()
         {
-            drink.Add(CoffeMachineStrategy.Select(capacity, beverageDrink));
-            CoffeMachineStrategy = new SelectCondiments();
-            AddCondiments();
+            
+            drink = CoffeMachineStrategy.Select(capacity, beverageDrink, null, drink);
+            if (drink == null)
+            {
+                Console.Clear();
+                Start();
+            }
+            else
+            {
+                if (drink.GetDescription() == new Beverage.Empty().GetDescription())
+                {
+                    Console.WriteLine("Извините, в настоящий момент мы не можем приготовить этот напиток.\nПожалуйста, выберите другой или позовите обслуживающий персонал.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    Start();
+                }
+                else
+                {
+                    CoffeMachineStrategy = new SelectCondiments();
+                    AddCondiments();
+                }
+            }
         }
 
         public void AddCondiments() {
             BeverageBase val;
             do
             {
-                Console.WriteLine("Выберите желаемый наполнитель, 0 - если хотите прекратиь выбор");
-                val = CoffeMachineStrategy.Select(capacity, beverageCondiments, beverageSyrup);
-                drink.Add(val);
-            } while (val.GetDescription() != new Condiments.Empty().GetDescription());
+                Console.WriteLine("Выберите желаемый наполнитель, 0 - если хотите прекратиь выбор.");
+                val = CoffeMachineStrategy.Select(capacity, beverageCondiments, beverageSyrup, drink);
+                if(val == null)
+                {
+                    Console.ReadLine();
+                    Console.Clear();
+                    Start();
+                }
+                else
+                {
+                    if(val == drink)
+                    {
+                        Console.ReadLine();
+                        Console.Clear();
+                        AddCondiments();
+                    }
+                }
+            } while (val.GetDescription() != new Condiments.Empty(drink).GetDescription());
             Process();
         }
 
