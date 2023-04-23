@@ -57,16 +57,20 @@ namespace CoffeMachine.CoffeMachine
         {
             Console.Clear();
             Console.WriteLine("\n\t{0}\n\tПополнить внутренний банк?", bank);
-            Console.ReadLine();
-            bank = 10000;
+            int val = Convert.ToInt32(Console.ReadLine());
+            bank += val;
+            Console.WriteLine("Внутренний банк пополнен на {0}. Всего - {1} рублей", val, bank);
         }
         private void TakeBank()
         {
             Console.Clear();
             Console.WriteLine("\n\t{0}\n\tСколько снять?", bank);
             int val = Convert.ToInt32(Console.ReadLine());
-            bank = 10000 - val;
+            bank -= val;
+            Console.WriteLine("Было снято {0}, остаток - {1}", val, bank);
         }
+
+
         private void UpdateCapacity()
         {
             Console.Clear();
@@ -76,6 +80,11 @@ namespace CoffeMachine.CoffeMachine
             Console.Clear();
             Console.WriteLine("\n\tПополнение ингридиентов успешно завершено");
             Thread.Sleep(1000);
+        }
+
+        private void CheckBank()
+        {
+            Console.WriteLine("В банке {0} рублей", bank);
         }
         public void Start()
         {
@@ -87,19 +96,16 @@ namespace CoffeMachine.CoffeMachine
                 if (pass == "2789")
                 {
                     BankUpdate();
-                    Start();
-                }
-                else
-                {
-                    Start();
-                }
+                }       
+                
+                Start();
             }
-            Console.WriteLine("\n\tДобро пожаловать!\nВыберите желаемый напиток, нажав на подходящую кнопку.\n");
+            Console.WriteLine("\n\tДобро пожаловать!");
             string pas = Console.ReadLine();
             if(pas == "2789")
             {
                 Console.Clear();
-                Console.WriteLine("\n\t1 - Снять деньги\n\t2 - Пополнить ингридиенты\nВыйти");
+                Console.WriteLine("\n\t1 - Снять деньги\n\t2 - Положить деньги\n\t3 - Просмотреть количество денег в банке\n\t4 - Пополнить ингридиенты\nВыйти");
                 pas = Console.ReadLine();
                 switch (pas)
                 {
@@ -110,6 +116,17 @@ namespace CoffeMachine.CoffeMachine
                             break;
                         }
                     case "2":
+                        {
+                            BankUpdate();
+                            Start();
+                            break;
+                        }
+                    case "3":
+                        {
+                           CheckBank();
+                            break;
+                        }
+                    case "4":
                         {
                             UpdateCapacity();
                             Start();
@@ -122,12 +139,14 @@ namespace CoffeMachine.CoffeMachine
                         }
                 }
             }
+            
             CoffeMachineStrategy = new SelectBeverage();
             SelectBeverage();
         }
         private void SelectBeverage()
         {
             Console.Clear();
+            Console.WriteLine("\nВыберите желаемый напиток, нажав на подходящую кнопку.");
             drink = CoffeMachineStrategy.Select(capacity, beverageDrink, null, drink);
             if (drink == null)
             {
@@ -220,25 +239,35 @@ namespace CoffeMachine.CoffeMachine
                 }
             Console.Clear();
             Console.WriteLine("\nВаш напиток: {0}.\nК оплате: {1}", drink.GetDescription(), drink.GetCost());
-            Console.WriteLine("Отмена");
-            string payment = Console.ReadLine().ToLower();
+            Console.WriteLine("1 - Отмена\n2 - Оплатить");
+            int payment = Convert.ToInt32(Console.ReadLine());
             switch (payment)
             {
-                case "отмена":
+                case 1:
                     {
                         drink = new Beverage.Empty();
                         Stop(false);
                         break;
                     }
-                case "оплатить":
+                case 2:
                     {
-                        bank += Convert.ToInt32(drink.GetCost());
+                        Console.WriteLine("Внесите деньги");
+                        int val = Convert.ToInt32(Console.ReadLine());
+                        double cost = drink.GetCost();
+                        Console.WriteLine("Внесено - {0}, стоимость - {1}, сдача - {2}", val, cost, val - cost);
+                        bank += val;
+                        Console.ReadLine();
                         Stop(true);
                         break;
                     }
                 default:
                     {
-                        bank += Convert.ToInt32(drink.GetCost());
+                        Console.WriteLine("Внесите деньги");
+                        int val = Convert.ToInt32(Console.ReadLine());
+                        double cost = drink.GetCost();
+                        Console.WriteLine("Внесено - {0}, стоимость - {1}, сдача - {2}", val, cost, val - cost);
+                        bank += val;
+                        Console.ReadLine();
                         Stop(true);
                         break;
                     }
@@ -250,9 +279,9 @@ namespace CoffeMachine.CoffeMachine
             if (isDone) 
             {
                 Console.WriteLine("Спасибо за покупку! Ждём вас снова!");
+                Console.ReadLine();
             }
-            Console.ReadLine();
-            Console.Clear();
+           
             Start();
         }
     }
