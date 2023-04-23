@@ -60,6 +60,7 @@ namespace CoffeMachine.CoffeMachine
             int val = Convert.ToInt32(Console.ReadLine());
             bank += val;
             Console.WriteLine("Внутренний банк пополнен на {0}. Всего - {1} рублей", val, bank);
+            Console.ReadLine();
         }
         private void TakeBank()
         {
@@ -68,6 +69,7 @@ namespace CoffeMachine.CoffeMachine
             int val = Convert.ToInt32(Console.ReadLine());
             bank -= val;
             Console.WriteLine("Было снято {0}, остаток - {1}", val, bank);
+            Console.ReadLine();
         }
 
 
@@ -85,6 +87,7 @@ namespace CoffeMachine.CoffeMachine
         private void CheckBank()
         {
             Console.WriteLine("В банке {0} рублей", bank);
+            Console.ReadLine();
         }
         public void Start()
         {
@@ -124,6 +127,7 @@ namespace CoffeMachine.CoffeMachine
                     case "3":
                         {
                            CheckBank();
+                            Start();
                             break;
                         }
                     case "4":
@@ -254,6 +258,13 @@ namespace CoffeMachine.CoffeMachine
                         Console.WriteLine("Внесите деньги");
                         int val = Convert.ToInt32(Console.ReadLine());
                         double cost = drink.GetCost();
+                        if (val < cost)
+                        {
+                            Console.WriteLine("Ошибка! Внесенное количество средст недостаточно для оплаты!");
+                            Console.ReadLine();
+                            Stop(false);
+                            break;
+                        }
                         Console.WriteLine("Внесено - {0}, стоимость - {1}, сдача - {2}", val, cost, val - cost);
                         bank += val;
                         Console.ReadLine();
