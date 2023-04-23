@@ -11,6 +11,7 @@ namespace CoffeMachine.CoffeMachine
     {
         public BeverageBase Select(CoffeMachineCapacity capacity, Dictionary<int, BeverageBase> beverage, Dictionary<int, BeverageBase> list2, BeverageBase drink)
         {
+            Console.WriteLine();
             foreach (var bev in beverage)
             {
                 Console.WriteLine("\t{0} - {1}, {2}", bev.Key, bev.Value.GetDescription(), bev.Value.GetCost());

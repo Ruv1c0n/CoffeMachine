@@ -16,6 +16,7 @@ namespace CoffeMachine.CoffeMachine
         private ISelect CoffeMachineStrategy;
         public CoffeMachineCapacity capacity;
         private BeverageBase drink;
+        private int bank;
 
         public CCoffeMachine()
         {
@@ -50,12 +51,77 @@ namespace CoffeMachine.CoffeMachine
             CoffeMachineStrategy = new SelectBeverage();
             capacity = new CoffeMachineCapacity();
             drink = new Beverage.Empty();
+            bank = 10000;
         }
-
+        private void BankUpdate()
+        {
+            Console.Clear();
+            Console.WriteLine("\n\t{0}\n\tПополнить внутренний банк?", bank);
+            Console.ReadLine();
+            bank = 10000;
+        }
+        private void TakeBank()
+        {
+            Console.Clear();
+            Console.WriteLine("\n\t{0}\n\tСколько снять?", bank);
+            int val = Convert.ToInt32(Console.ReadLine());
+            bank = 10000 - val;
+        }
+        private void UpdateCapacity()
+        {
+            Console.Clear();
+            Console.WriteLine("\n\tПополнение ингридиентов");
+            Console.ReadLine();
+            capacity = new CoffeMachineCapacity();
+            Console.Clear();
+            Console.WriteLine("\n\tПополнение ингридиентов успешно завершено");
+            Thread.Sleep(1000);
+        }
         public void Start()
         {
-            Console.WriteLine("\n\tДобро пожаловать!\nВыберите желаемый напиток, нажав на подходящую кнопку.");
-            Console.ReadLine();
+            Console.Clear();
+            if(bank <= 2000)
+            {
+                Console.WriteLine("\n\tПриносим извинения, аппарат не работает.");
+                string pass = Console.ReadLine();
+                if (pass == "2789")
+                {
+                    BankUpdate();
+                    Start();
+                }
+                else
+                {
+                    Start();
+                }
+            }
+            Console.WriteLine("\n\tДобро пожаловать!\nВыберите желаемый напиток, нажав на подходящую кнопку.\n");
+            string pas = Console.ReadLine();
+            if(pas == "2789")
+            {
+                Console.Clear();
+                Console.WriteLine("\n\t1 - Снять деньги\n\t2 - Пополнить ингридиенты\nВыйти");
+                pas = Console.ReadLine();
+                switch (pas)
+                {
+                    case "1":
+                        {
+                            TakeBank();
+                            Start();
+                            break;
+                        }
+                    case "2":
+                        {
+                            UpdateCapacity();
+                            Start();
+                            break;
+                        }
+                    default:
+                        {
+                            Start();
+                            break;
+                        }
+                }
+            }
             CoffeMachineStrategy = new SelectBeverage();
             SelectBeverage();
         }
@@ -80,6 +146,7 @@ namespace CoffeMachine.CoffeMachine
                 else
                 {
                     CoffeMachineStrategy = new SelectCondiments();
+                    Console.Clear();
                     AddCondiments();
                 }
             }
@@ -90,7 +157,8 @@ namespace CoffeMachine.CoffeMachine
             BeverageBase val;
             do
             {
-                Console.WriteLine("Выберите желаемый наполнитель, 0 - если хотите прекратиь выбор.");
+                Console.WriteLine(drink.GetDescription());
+                Console.WriteLine("\nВыберите желаемый наполнитель, 0 - если хотите прекратиь выбор.");
                 val = CoffeMachineStrategy.Select(capacity, beverageCondiments, beverageSyrup, drink);
                 if (val == null)
                 {
@@ -116,10 +184,42 @@ namespace CoffeMachine.CoffeMachine
             } while (true);
             Process();
         }
-
-        private void Process()
+        private static void drawTextProgressBar(int progress, int total)
         {
-            Console.WriteLine("Ваш напиток: {0}.\nК оплате: {1}", drink.GetDescription(), drink.GetCost());
+            Console.CursorLeft = 0;
+            Console.Write("["); 
+            Console.CursorLeft = 32;
+            Console.Write("]"); 
+            Console.CursorLeft = 1;
+            float onechunk = 30.0f / total;
+
+            int position = 1;
+            for (int i = 0; i < onechunk * progress; i++)
+            {
+                Console.BackgroundColor = ConsoleColor.Gray;
+                Console.CursorLeft = position++;
+                Console.Write(" ");
+            }
+
+            for (int i = position; i <= 31; i++)
+            {
+                Console.BackgroundColor = ConsoleColor.Green;
+                Console.CursorLeft = position++;
+                Console.Write(" ");
+            }
+
+            Console.CursorLeft = 35;
+            Console.BackgroundColor = ConsoleColor.Black;
+        }
+        private void Process() {
+            Console.WriteLine("\n\tНапиток готовится\n");
+                for (int i = 0; i < 100; i++)
+                {
+                    Thread.Sleep(100);
+                    drawTextProgressBar(i, 100);
+                }
+            Console.Clear();
+            Console.WriteLine("\nВаш напиток: {0}.\nК оплате: {1}", drink.GetDescription(), drink.GetCost());
             Console.WriteLine("Отмена");
             string payment = Console.ReadLine().ToLower();
             switch (payment)
@@ -132,11 +232,13 @@ namespace CoffeMachine.CoffeMachine
                     }
                 case "оплатить":
                     {
+                        bank += Convert.ToInt32(drink.GetCost());
                         Stop(true);
                         break;
                     }
                 default:
                     {
+                        bank += Convert.ToInt32(drink.GetCost());
                         Stop(true);
                         break;
                     }
@@ -144,6 +246,7 @@ namespace CoffeMachine.CoffeMachine
         }
         private void Stop(bool isDone)
         {
+            Console.Clear();
             if (isDone) 
             {
                 Console.WriteLine("Спасибо за покупку! Ждём вас снова!");

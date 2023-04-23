@@ -20,7 +20,7 @@ namespace CoffeMachine.CoffeMachine
             Console.WriteLine("Выйти");
 
             string condiment = Console.ReadLine();
-            Console.WriteLine(); 
+            Console.Clear(); 
 
             if (condiment == "1")
             {
@@ -30,6 +30,7 @@ namespace CoffeMachine.CoffeMachine
                 }
                 Console.WriteLine("Назад");
                 condiment = Console.ReadLine().ToLower();
+                Console.Clear();
 
                 switch (condiment)
                 {
