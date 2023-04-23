@@ -59,9 +59,9 @@ namespace CoffeMachine.CoffeMachine
             CoffeMachineStrategy = new SelectBeverage();
             SelectBeverage();
         }
-        public void SelectBeverage()
+        private void SelectBeverage()
         {
-            
+
             drink = CoffeMachineStrategy.Select(capacity, beverageDrink, null, drink);
             if (drink == null)
             {
@@ -75,7 +75,7 @@ namespace CoffeMachine.CoffeMachine
                     Console.WriteLine("Извините, в настоящий момент мы не можем приготовить этот напиток.\nПожалуйста, выберите другой или позовите обслуживающий персонал.");
                     Console.ReadLine();
                     Console.Clear();
-                    Start();
+                    SelectBeverage();
                 }
                 else
                 {
@@ -85,35 +85,67 @@ namespace CoffeMachine.CoffeMachine
             }
         }
 
-        public void AddCondiments() {
+        private void AddCondiments()
+        {
             BeverageBase val;
             do
             {
                 Console.WriteLine("Выберите желаемый наполнитель, 0 - если хотите прекратиь выбор.");
                 val = CoffeMachineStrategy.Select(capacity, beverageCondiments, beverageSyrup, drink);
-                if(val == null)
+                if (val == null)
                 {
-                    Console.ReadLine();
                     Console.Clear();
                     Start();
                 }
                 else
                 {
-                    if(val == drink)
+                    if (val == drink)
                     {
-                        Console.ReadLine();
                         Console.Clear();
                         AddCondiments();
+                    }
+                    else
+                    {
+                        drink = val;
                     }
                 }
             } while (val.GetDescription() != new Condiments.Empty(drink).GetDescription());
             Process();
         }
 
-        public void Process() { }
-        public void Stop()
+        private void Process()
         {
-            Console.WriteLine("Спасибо за покупку! Ждём вас снова!");
+            Console.WriteLine("Ваш напиток: {0}.\nК оплате: {1}", drink.GetDescription(), drink.GetCost());
+            Console.WriteLine("Отмена");
+            string payment = Console.ReadLine().ToLower();
+            switch (payment)
+            {
+                case "отмена":
+                    {
+                        drink = new Beverage.Empty();
+                        Stop(false);
+                        break;
+                    }
+                case "оплатить":
+                    {
+                        Stop(true);
+                        break;
+                    }
+                default:
+                    {
+                        Stop(true);
+                        break;
+                    }
+            }
+        }
+        private void Stop(bool isDone)
+        {
+            if (isDone) 
+            {
+                Console.WriteLine("Спасибо за покупку! Ждём вас снова!");
+            }
+            Console.Clear();
+            Start();
         }
     }
 }

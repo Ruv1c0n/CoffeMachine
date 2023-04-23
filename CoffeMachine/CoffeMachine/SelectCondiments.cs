@@ -83,6 +83,10 @@ namespace CoffeMachine.CoffeMachine
             {
                 switch (condiment)
                 {
+                    case "0":
+                        {
+                            return new Condiments.Empty(drink);
+                        }
                     case "2":
                         {
                             if (capacity.Sugar())

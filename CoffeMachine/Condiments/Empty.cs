@@ -22,6 +22,7 @@ namespace CoffeMachine.Condiments
         public Empty(BeverageBase beverage)
         {
             this.beverageBase = beverage;
+            DESCRIPTION = beverageBase.GetDescription();
         }
 
         public override double GetCost()
