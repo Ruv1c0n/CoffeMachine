@@ -16,5 +16,9 @@ namespace CoffeMachine.Beverage
         {
             return 0;
         }
+        public override double Cost()
+        {
+            return 0;
+        }
     }
 }

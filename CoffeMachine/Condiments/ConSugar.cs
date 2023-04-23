@@ -29,5 +29,9 @@ namespace CoffeMachine.Condiments
         {
             return this.beverageBase.GetCost() + COST;
         }
+        public override double Cost()
+        {
+            return 5;
+        }
     }
 }

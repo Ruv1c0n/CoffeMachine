@@ -15,5 +15,6 @@ namespace CoffeMachine.Beverage
         }
 
         public abstract double GetCost();
+        public abstract double Cost();
     }
 }

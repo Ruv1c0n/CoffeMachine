@@ -13,6 +13,11 @@ namespace CoffeMachine.Beverage
             DESCRIPTION = "Американо";
         }
 
+        public override double Cost()
+        {
+            return 50;
+        }
+
         public override double GetCost()
         {
             return 50;

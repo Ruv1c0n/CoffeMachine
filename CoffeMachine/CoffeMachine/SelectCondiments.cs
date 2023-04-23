@@ -15,7 +15,7 @@ namespace CoffeMachine.CoffeMachine
 
             foreach (var bev in condiments)
             {
-                Console.WriteLine("\t{0} - {1}", bev.Key, bev.Value.GetDescription());
+                Console.WriteLine("\t{0} - {1}, {2}", bev.Key, bev.Value.GetDescription(), bev.Value.Cost());
             }
             Console.WriteLine("Выйти");
 

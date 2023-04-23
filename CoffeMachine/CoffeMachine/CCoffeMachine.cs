@@ -61,7 +61,7 @@ namespace CoffeMachine.CoffeMachine
         }
         private void SelectBeverage()
         {
-
+            Console.Clear();
             drink = CoffeMachineStrategy.Select(capacity, beverageDrink, null, drink);
             if (drink == null)
             {
@@ -104,12 +104,16 @@ namespace CoffeMachine.CoffeMachine
                         Console.Clear();
                         AddCondiments();
                     }
-                    else
+                    else if (val.GetDescription() != new Condiments.Empty(drink).GetDescription())
                     {
                         drink = val;
                     }
+                    else
+                    {
+                        break;
+                    }
                 }
-            } while (val.GetDescription() != new Condiments.Empty(drink).GetDescription());
+            } while (true);
             Process();
         }
 
@@ -144,6 +148,7 @@ namespace CoffeMachine.CoffeMachine
             {
                 Console.WriteLine("Спасибо за покупку! Ждём вас снова!");
             }
+            Console.ReadLine();
             Console.Clear();
             Start();
         }

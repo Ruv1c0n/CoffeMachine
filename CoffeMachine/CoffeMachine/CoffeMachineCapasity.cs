@@ -8,14 +8,14 @@ namespace CoffeMachine.CoffeMachine
 {
     public class CoffeMachineCapacity
     {
-        static int water_cap = 0;
+        static int water_cap = 1000;
         static int coffee_cap = 500;
         static int milk_cap = 1000;
         static int sugar_cap = 300;
         static int cocoa_cap = 200;
         static int chocolate_cap = 300;
         static int syrop_vanil_cap = 200;
-        static int syrop_chocolate_cap = 0;
+        static int syrop_chocolate_cap = 200;
         static int syrop_caramel_cap = 200;
 
         private bool isPossible(int val, int count = 1)
