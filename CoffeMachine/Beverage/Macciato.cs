@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CoffeMachine.Beverage
 {
-    class Маккиато : BeverageBase
+    class Macciato : BeverageBase
     {
-        public Маккиато()
+        public Macciato()
         {
             DESCRIPTION = "Маккиато";
         }

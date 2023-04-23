@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CoffeMachine.Beverage;
+using CoffeMachine.Condiments;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,42 +10,42 @@ namespace CoffeMachine.CoffeMachine
 {
     public class CCoffeMachine
     {
-        private Dictionary<string, int> beverageDrink;
-        private Dictionary<string, int> beverageCondiments;
-        private Dictionary<string, int> beverageSyrup;
+        private Dictionary<BeverageBase, int> beverageDrink;
+        private Dictionary<BeverageBase, int> beverageCondiments;
+        private Dictionary<BeverageBase, int> beverageSyrup;
         private IStrategy CoffeMachineStrategy;
         public CoffeMashineCapacity capacity;
 
         public CCoffeMachine()
         {
-            this.beverageDrink = new Dictionary<string, int>()
+            this.beverageDrink = new Dictionary<BeverageBase, int>()
             {
-                {"Горячая вода", 1},
-                {"Эспрессо", 2},
-                {"Американо", 3},
-                {"Каппучино", 4},
-                {"Латте", 5},
-                {"Горячий шоколад", 6},
-                {"Какао", 7},
-                {"Маккиато", 8},
-                {"Доппио", 9},
-                {"Флет Уайт", 10}
+                {new Beverage.BoiledWater(), 1},
+                {new Beverage.Espresso(), 2},
+                {new Beverage.Americano(), 3},
+                {new Beverage.Cappuccino(), 4},
+                {new Beverage.Latte(), 5},
+                {new Beverage.HotChocolate(), 6},
+                {new Beverage.Cocoa(), 7},
+                {new Beverage.Macciato(), 8},
+                {new Beverage.Doppio(), 9},
+                {new Beverage.FlatWhite(), 10}
             };
 
 
-            this.beverageCondiments = new Dictionary<string, int>()
+            this.beverageCondiments = new Dictionary<BeverageBase, int>()
             {
-                {"Без наполнителя", 0},
-                {"Сироп", 1},
-                {"Сахар", 2},
-                {"Молоко", 3},
+                {new Condiments.Empty(), 0},
+                {new Condiments.ConSyrup(), 1},
+                {new Condiments.ConSugar(), 2},
+                {new Condiments.ConMilk(), 3},
             };
 
-            this.beverageSyrup = new Dictionary<string, int>()
+            this.beverageSyrup = new Dictionary<BeverageBase, int>()
             {
-                {"Шоколадный сироп", 1},
-                {"Карамельный сироп", 2},
-                {"Ванильный сироп", 3},
+                {new Condiments.SyrupChocolate(), 1},
+                {new Condiments.SyrupCaramel(), 2},
+                {new Condiments.SyrupVanila(), 3},
             };
             CoffeMachineStrategy = new SelectBeverage();
             capacity = new CoffeMashineCapacity();
