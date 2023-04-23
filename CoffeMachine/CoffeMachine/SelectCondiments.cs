@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CoffeMachine.Beverage;
+using CoffeMachine.Condiments;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,29 +8,115 @@ using System.Threading.Tasks;
 
 namespace CoffeMachine.CoffeMachine
 {
-    class SelectCondiments: IStrategy
+    class SelectCondiments: ISelect
     {
-        public int Select(Dictionary<string, int> Condiments, Dictionary<string, int> Syrup=null)
+        public BeverageBase Select(CoffeMachineCapacity capacity, Dictionary<int, BeverageBase> condiments, Dictionary<int, BeverageBase> syrup, BeverageBase drink)
         {
 
-            foreach (var bev in Condiments)
+            foreach (var bev in condiments)
             {
-                Console.WriteLine("\t{0} - {1}", bev.Key, bev.Value);
+                Console.WriteLine("\t{0} - {1}", bev.Key, bev.Value.GetDescription());
             }
+            Console.WriteLine("Выйти");
 
-            int num_condiment = Convert.ToInt32(Console.ReadLine());
+            string condiment = Console.ReadLine();
             Console.WriteLine(); 
 
-            if (num_condiment == 1)
+            if (condiment == "1")
             {
-                foreach (var bev in Syrup)
+                foreach (var bev in syrup)
                 {
-                    Console.WriteLine("\t{0} - {1}", bev.Key, bev.Value);
+                    Console.WriteLine("\t{0} - {1}", bev.Key, bev.Value.GetDescription());
                 }
-                num_condiment = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Назад");
+                condiment = Console.ReadLine().ToLower();
+
+                switch (condiment)
+                {
+                    case "1":
+                        {
+                            if (capacity.ChocolateSyrup())
+                            {
+                                return new Condiments.SyrupChocolate(drink);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Сироп закончился.\nПожалуйста, выберите что-то другое или позовите обслуживающий персонал. ");
+                                return drink;
+                            }
+                        }
+                    case "2":
+                        {
+                            if (capacity.CaramelSyrup())
+                            {
+                                return new Condiments.SyrupCaramel(drink);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Сироп закончился.\nПожалуйста, выберите что-то другое или позовите обслуживающий персонал. ");
+                                return drink;
+                            }
+                        }
+                    case "3":
+                        {
+                            if (capacity.VanillaSyrup())
+                            {
+                                return new Condiments.SyrupVanila(drink);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Сироп закончился.\nПожалуйста, выберите что-то другое или позовите обслуживающий персонал. ");
+                                return drink;
+                            }
+                        }
+                    case "назад":
+                        {
+                            return drink;
+                        }
+                    default:
+                        {
+                            return null;
+                        }
+                }
             }
-            
-            return num_condiment;
+            else
+            {
+                switch (condiment)
+                {
+                    case "0":
+                        {
+                            return new Condiments.Empty(drink);
+                        }
+                    case "2":
+                        {
+                            if (capacity.Sugar())
+                            {
+                                return new Condiments.ConSugar(drink);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Сахар закончился.\nПожалуйста, выберите что-то другое или позовите обслуживающий персонал. ");
+                                return drink;
+                            }
+                        }
+                    case "3":
+                        {
+                            if (capacity.Milk())
+                            {
+                                return new Condiments.ConMilk(drink);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Молоко закончилось.\nПожалуйста, выберите что-то другое или позовите обслуживающий персонал. ");
+                                return drink;
+                            }
+                        }
+                    default:
+                        {
+                            return null;
+                        }
+                }
+            }
         }
     }
 }

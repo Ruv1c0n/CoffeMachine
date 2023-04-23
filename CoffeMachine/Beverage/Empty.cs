@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace CoffeMachine.Beverage
 {
-    class Americano : BeverageBase
+    class Empty : BeverageBase
     {
-        public Americano()
+        public Empty()
         {
-            DESCRIPTION = "Американо";
+            DESCRIPTION = "Пусто";
         }
-
         public override double GetCost()
         {
-            return 50;
+            return 0;
         }
     }
 }
