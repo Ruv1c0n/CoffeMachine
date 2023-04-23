@@ -10,45 +10,46 @@ namespace CoffeMachine.CoffeMachine
 {
     public class CCoffeMachine
     {
-        private Dictionary<BeverageBase, int> beverageDrink;
-        private Dictionary<BeverageBase, int> beverageCondiments;
-        private Dictionary<BeverageBase, int> beverageSyrup;
-        private IStrategy CoffeMachineStrategy;
-        public CoffeMashineCapacity capacity;
+        private Dictionary<int, BeverageBase> beverageDrink;
+        private Dictionary<int, BeverageBase> beverageCondiments;
+        private Dictionary<int, BeverageBase> beverageSyrup;
+        private ISelect CoffeMachineStrategy;
+        public CoffeMachineCapacity capacity;
+        private List<BeverageBase> drink;
 
         public CCoffeMachine()
         {
-            this.beverageDrink = new Dictionary<BeverageBase, int>()
+            this.beverageDrink = new Dictionary<int, BeverageBase>()
             {
-                {new Beverage.BoiledWater(), 1},
-                {new Beverage.Espresso(), 2},
-                {new Beverage.Americano(), 3},
-                {new Beverage.Cappuccino(), 4},
-                {new Beverage.Latte(), 5},
-                {new Beverage.HotChocolate(), 6},
-                {new Beverage.Cocoa(), 7},
-                {new Beverage.Macciato(), 8},
-                {new Beverage.Doppio(), 9},
-                {new Beverage.FlatWhite(), 10}
+                {1, new Beverage.BoiledWater()},
+                {2, new Beverage.Espresso()},
+                {3, new Beverage.Americano()},
+                {4, new Beverage.Cappuccino()},
+                {5, new Beverage.Latte()},
+                {6, new Beverage.HotChocolate()},
+                {7, new Beverage.Cocoa()},
+                {8, new Beverage.Macciato()},
+                {9, new Beverage.Doppio()},
+                {10, new Beverage.FlatWhite()}
             };
 
-
-            this.beverageCondiments = new Dictionary<BeverageBase, int>()
+            this.beverageCondiments = new Dictionary<int, BeverageBase>()
             {
-                {new Condiments.Empty(), 0},
-                {new Condiments.ConSyrup(), 1},
-                {new Condiments.ConSugar(), 2},
-                {new Condiments.ConMilk(), 3},
+                {0, new Condiments.Empty()},
+                {1, new Condiments.ConSyrup()},
+                {2, new Condiments.ConSugar()},
+                {3, new Condiments.ConMilk()},
             };
 
-            this.beverageSyrup = new Dictionary<BeverageBase, int>()
+            this.beverageSyrup = new Dictionary<int, BeverageBase>()
             {
-                {new Condiments.SyrupChocolate(), 1},
-                {new Condiments.SyrupCaramel(), 2},
-                {new Condiments.SyrupVanila(), 3},
+                {1, new Condiments.SyrupChocolate()},
+                {2, new Condiments.SyrupCaramel()},
+                {3, new Condiments.SyrupVanila()},
             };
             CoffeMachineStrategy = new SelectBeverage();
-            capacity = new CoffeMashineCapacity();
+            capacity = new CoffeMachineCapacity();
+            drink = new List<BeverageBase>();
         }
 
         public void Start()
@@ -59,14 +60,20 @@ namespace CoffeMachine.CoffeMachine
         }
         public void SelectBeverage()
         {
-            CoffeMachineStrategy.Select(capacity, beverageDrink, null);
+            drink.Add(CoffeMachineStrategy.Select(capacity, beverageDrink));
             CoffeMachineStrategy = new SelectCondiments();
             AddCondiments();
         }
 
         public void AddCondiments() {
-            Console.WriteLine("Выберите желаемый наполнитель: 1 - 5, 0 - если не хотите брать наполнитель");
-            CoffeMachineStrategy.Select(capacity, beverageCondiments, beverageSyrup);
+            BeverageBase val;
+            do
+            {
+                Console.WriteLine("Выберите желаемый наполнитель, 0 - если хотите прекратиь выбор");
+                val = CoffeMachineStrategy.Select(capacity, beverageCondiments, beverageSyrup);
+                drink.Add(val);
+            } while (val.GetDescription() != new Condiments.Empty().GetDescription());
+            Process();
         }
 
         public void Process() { }

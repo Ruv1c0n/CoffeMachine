@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoffeMachine.CoffeMachine
 {
-    public class CoffeMashineCapacity
+    public class CoffeMachineCapacity
     {
         static int water_cap = 1500;
         static int coffee_cap = 500;

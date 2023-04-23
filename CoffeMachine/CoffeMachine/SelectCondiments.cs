@@ -1,4 +1,5 @@
 ﻿using CoffeMachine.Beverage;
+using CoffeMachine.Condiments;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,31 +8,70 @@ using System.Threading.Tasks;
 
 namespace CoffeMachine.CoffeMachine
 {
-    class SelectCondiments: IStrategy
+    class SelectCondiments: ISelect
     {
-        public int Select(Dictionary<BeverageBase, int> Condiments, Dictionary<BeverageBase, int> Syrup=null)
+        public BeverageBase Select(CoffeMachineCapacity capacity, Dictionary<int, BeverageBase> condiments, Dictionary<int, BeverageBase> syrup=null)
         {
 
-            foreach (var bev in Condiments)
+            foreach (var bev in condiments)
             {
-                Console.WriteLine("\t{0} - {1}", bev.Key.GetDescription(), bev.Value);
+                Console.WriteLine("\t{0} - {1}", bev.Key, bev.Value.GetDescription());
             }
 
-            int num_condiment = Convert.ToInt32(Console.ReadLine());
+            int condiment = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine(); 
 
-            if (num_condiment == 1)
+            if (condiment == 1)
             {
-                foreach (var bev in Syrup)
+                foreach (var bev in syrup)
                 {
-                    Console.WriteLine("\t{0} - {1}", bev.Key.GetDescription(), bev.Value);
+                    Console.WriteLine("\t{0} - {1}", bev.Key, bev.Value.GetDescription());
                 }
-                num_condiment = Convert.ToInt32(Console.ReadLine());
+                condiment = Convert.ToInt32(Console.ReadLine());
+
+                switch (condiment)
+                {
+                    case 1:
+                        {
+                            capacity.ChocolateSyrup();
+                            return new Condiments.SyrupChocolate();
+                        }
+                    case 2:
+                        {
+                            capacity.CaramelSyrup();
+                            return new Condiments.SyrupCaramel();
+                        }
+                    case 3:
+                        {
+                            capacity.VanillaSyrup();
+                            return new Condiments.SyrupVanila();
+                        }
+                    default:
+                        {
+                            return new Condiments.Empty();
+                        }
+                }
             }
-
-            capacity.Milk();
-
-            return num_condiment;
+            else
+            {
+                switch (condiment)
+                {
+                    case 2:
+                        {
+                            capacity.Sugar();
+                            return new Condiments.ConSugar();
+                        }
+                    case 3:
+                        {
+                            capacity.Milk();
+                            return new Condiments.ConMilk();
+                        }
+                    default:
+                        {
+                            return new Condiments.Empty();
+                        }
+                }
+            }
         }
     }
 }

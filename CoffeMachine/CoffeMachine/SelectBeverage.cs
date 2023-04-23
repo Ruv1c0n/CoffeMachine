@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace CoffeMachine.CoffeMachine
 {
-    class SelectBeverage : IStrategy
+    class SelectBeverage : ISelect
     {
-        public int Select(Dictionary<BeverageBase, int> Beverage, Dictionary<BeverageBase, int> list2)
+        public BeverageBase Select(CoffeMachineCapacity capacity, Dictionary<int, BeverageBase> beverage, Dictionary<int, BeverageBase> list2)
         {
             foreach (var bev in beverage)
             {
-                Console.WriteLine("\t{0} - {1}", bev.Key.GetDescription(), bev.Value);
+                Console.WriteLine("\t{0} - {1}", bev.Key, bev.Value.GetDescription());
             }
             int drink = Convert.ToInt32(Console.ReadLine());
 
@@ -22,56 +22,53 @@ namespace CoffeMachine.CoffeMachine
                 case 1:
                     {
                         capacity.BoiledWater();
-                        break;
+                        return new BoiledWater();
                     }
                 case 2:
                     {
                         capacity.Espresso();
-                        break;
+                        return new Espresso();
                     }
                 case 3:
                     {
                         capacity.Americano();
-                        break;
+                        return new Americano();
                     }
                 case 4:
                     {
                         capacity.Cappuccino();
-                        break;
+                        return new Cappuccino();
                     }
                 case 5:
                     {
                         capacity.Latte();
-                        break;
+                        return new Latte();
                     }
                 case 6:
                     {
                         capacity.HotChocolate();
-                        break;
+                        return new HotChocolate();
                     }
                 case 7:
                     {
                         capacity.Cocoa();
-                        break;
+                        return new Cocoa();
                     }
                 case 8:
                     {
                         capacity.Macciato();
-                        break;
+                        return new Macciato();
                     }
                 case 9:
                     {
                         capacity.FlatWhite();
-                        break;
+                        return new FlatWhite();
                     }
                 default:
                     {
-                        break;
+                        return new BoiledWater();
                     }
             }
-
-            Console.WriteLine();
-            return drink;
         }
     }
 }

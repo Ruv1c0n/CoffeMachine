@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace CoffeMachine.CoffeMachine
 {
-    public interface IStrategy
+    public interface ISelect
     {
-        public int Select(Dictionary<BeverageBase, int> list1, Dictionary<BeverageBase, int> list2 = null);
+        public BeverageBase Select(CoffeMachineCapacity capacity, Dictionary<int, BeverageBase> list1, Dictionary<int, BeverageBase> list2 = null);
     }
 }
