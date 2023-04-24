@@ -59,8 +59,9 @@ namespace CoffeMachine.CoffeMachine
             Console.WriteLine("\n\t{0}\n\tПополнить внутренний банк?", bank);
             int val = Convert.ToInt32(Console.ReadLine());
             bank += val;
-            Console.WriteLine("Внутренний банк пополнен на {0}. Всего - {1} рублей", val, bank);
-            Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("\n\tВнутренний банк пополнен на {0}. Всего - {1} рублей", val, bank);
+            Thread.Sleep(800);
         }
         private void TakeBank()
         {
@@ -68,7 +69,7 @@ namespace CoffeMachine.CoffeMachine
             Console.WriteLine("\n\t{0}\n\tСколько снять?", bank);
             int val = Convert.ToInt32(Console.ReadLine());
             bank -= val;
-            Console.WriteLine("Было снято {0}, остаток - {1}", val, bank);
+            Console.WriteLine("\n\tБыло снято {0}, остаток - {1}", val, bank);
             Console.ReadLine();
         }
 
@@ -86,7 +87,8 @@ namespace CoffeMachine.CoffeMachine
 
         private void CheckBank()
         {
-            Console.WriteLine("В банке {0} рублей", bank);
+            Console.Clear();
+            Console.WriteLine("\n\tВ банке {0} рублей", bank);
             Console.ReadLine();
         }
         public void Start()
@@ -236,15 +238,16 @@ namespace CoffeMachine.CoffeMachine
         }
         private void Process() {
             Console.WriteLine("\n\tНапиток готовится\n");
-                for (int i = 0; i < 100; i++)
+                for (int i = 0; i < Convert.ToInt32(drink.GetCost()); i++)
                 {
                     Thread.Sleep(100);
-                    drawTextProgressBar(i, 100);
+                    drawTextProgressBar(i, Convert.ToInt32(drink.GetCost()));
                 }
             Console.Clear();
             Console.WriteLine("\nВаш напиток: {0}.\nК оплате: {1}", drink.GetDescription(), drink.GetCost());
             Console.WriteLine("1 - Отмена\n2 - Оплатить");
             int payment = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
             switch (payment)
             {
                 case 1:
@@ -255,30 +258,34 @@ namespace CoffeMachine.CoffeMachine
                     }
                 case 2:
                     {
-                        Console.WriteLine("Внесите деньги");
+                        Console.WriteLine("\n\tВнесите деньги");
                         int val = Convert.ToInt32(Console.ReadLine());
                         double cost = drink.GetCost();
-                        if (val < cost)
+                        while (val < cost)
                         {
-                            Console.WriteLine("Ошибка! Внесенное количество средст недостаточно для оплаты!");
-                            Console.ReadLine();
-                            Stop(false);
-                            break;
+                            Console.Clear();
+                            Console.WriteLine("\n\tОшибка! Внесенное количество средст недостаточно для оплаты. Попробуйте снова или отмените заказ.\n0 - Выйти");
+                            val = Convert.ToInt32(Console.ReadLine());
+                            if (val == 0)
+                            {
+                                Stop(false);
+                            }
                         }
-                        Console.WriteLine("Внесено - {0}, стоимость - {1}, сдача - {2}", val, cost, val - cost);
-                        bank += val;
-                        Console.ReadLine();
+                        Console.Clear();
+                        Console.WriteLine("\n\tВнесено - {0}, стоимость - {1}, сдача - {2}", val, cost, val - cost);
+                        bank += Convert.ToInt32(cost);
+                        Thread.Sleep(700);
                         Stop(true);
                         break;
                     }
                 default:
                     {
-                        Console.WriteLine("Внесите деньги");
+                        Console.WriteLine("\n\tВнесите деньги");
                         int val = Convert.ToInt32(Console.ReadLine());
                         double cost = drink.GetCost();
-                        Console.WriteLine("Внесено - {0}, стоимость - {1}, сдача - {2}", val, cost, val - cost);
-                        bank += val;
-                        Console.ReadLine();
+                        Console.WriteLine("\n\tВнесено - {0}, стоимость - {1}, сдача - {2}", val, cost, val - cost);
+                        bank += Convert.ToInt32(cost);
+                        Thread.Sleep(1000);
                         Stop(true);
                         break;
                     }
@@ -289,7 +296,7 @@ namespace CoffeMachine.CoffeMachine
             Console.Clear();
             if (isDone) 
             {
-                Console.WriteLine("Спасибо за покупку! Ждём вас снова!");
+                Console.WriteLine("\n\tСпасибо за покупку! Ждём вас снова!");
                 Console.ReadLine();
             }
            
