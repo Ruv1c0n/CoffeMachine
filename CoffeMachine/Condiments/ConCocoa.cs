@@ -9,7 +9,6 @@ namespace CoffeMachine.Condiments
 {
     class ConCocoa : CondimentsBase
     {
-        protected static string TYPE = "Основа";
         private static double COST = 120;
         private static string descr = " + порция какао 7гр";
 

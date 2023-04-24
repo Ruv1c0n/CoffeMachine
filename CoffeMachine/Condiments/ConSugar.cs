@@ -9,10 +9,8 @@ namespace CoffeMachine.Condiments
 {
     class ConSugar : CondimentsBase
     {
-        protected static string TYPE = "Опционально";
         private static double COST = 5;
         private static string descr = " + сахар 6гр";
-        protected string out_description = "Сахар";
 
 
         public ConSugar(BeverageBase beverage)

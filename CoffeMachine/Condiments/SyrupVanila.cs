@@ -10,11 +10,10 @@ namespace CoffeMachine.Condiments
     class SyrupVanila : ConSyrup
     {
         protected static string SYRUP_TYPE = "Ванильный";
-        protected string out_description = "Ваниль";
 
         public SyrupVanila()
         {
-            DESCRIPTION = "Вынильный";
+            DESCRIPTION = "Ванильный";
         }
 
         public SyrupVanila(BeverageBase beverage)

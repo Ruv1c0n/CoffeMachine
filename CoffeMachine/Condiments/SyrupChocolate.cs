@@ -10,7 +10,6 @@ namespace CoffeMachine.Condiments
     internal class SyrupChocolate : ConSyrup
     {
         protected static string SYRUP_TYPE = "Шоколадный";
-        protected string out_description = "Шоколад";
 
 
         public SyrupChocolate(BeverageBase beverage)
