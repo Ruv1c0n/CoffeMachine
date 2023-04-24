@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace CoffeMachine.Condiments
 {
+    //Основа для сиропов
     class ConSyrup : CondimentsBase
     {
         protected static string SYRUP_TYPE = "";

@@ -8,8 +8,18 @@ using System.Threading.Tasks;
 
 namespace CoffeMachine.CoffeMachine
 {
+    //Главный метод работы кофемашины
     public class CCoffeMachine
     {
+        /*
+          beverageDrink - Коллекция напитков
+          beverageCondiments - Коллекция продуктов
+          beverageSyrup - Коллекция сиропов
+          CoffeMachineSelectStrategy - Меняющаяся стратегия выбора 
+          capacity - Бойлер с продуктами
+          drink - Текущий напиток
+          bank - Внутренний банк
+        */
         private Dictionary<int, BeverageBase> beverageDrink;
         private Dictionary<int, BeverageBase> beverageCondiments;
         private Dictionary<int, BeverageBase> beverageSyrup;
@@ -18,6 +28,7 @@ namespace CoffeMachine.CoffeMachine
         private BeverageBase drink;
         private int bank;
 
+        //Конструктор
         public CCoffeMachine()
         {
             this.beverageDrink = new Dictionary<int, BeverageBase>()
@@ -54,6 +65,8 @@ namespace CoffeMachine.CoffeMachine
             bank = 0;
         }
 
+        //Администрирующие методы
+        //Пополнение средств
         private void BankUpdate()
         {
             Console.Clear();
@@ -64,6 +77,7 @@ namespace CoffeMachine.CoffeMachine
             Console.WriteLine("\n\tВнутренний банк пополнен на {0}. Всего - {1} рублей", val, bank);
             Thread.Sleep(2000);
         }
+        //Снятие средств
         private void TakeBank()
         {
             Console.Clear();
@@ -73,6 +87,7 @@ namespace CoffeMachine.CoffeMachine
             Console.WriteLine("\n\tБыло снято {0}, остаток - {1}", val, bank);
             Console.ReadLine();
         }
+        //Пополнение продуктов
         private void UpdateCapacity()
         {
             Console.Clear();
@@ -83,15 +98,18 @@ namespace CoffeMachine.CoffeMachine
             Console.WriteLine("\n\tПополнение ингредиентов успешно завершено");
             Thread.Sleep(2000);
         }
+        //Отображение внутреннего банка
         private void CheckBank()
         {
             Console.Clear();
             Console.WriteLine("\n\tВ банке {0} рублей", bank);
             Console.ReadLine();
         }
-
+        
+        //Метод обработки пользовательского интерфейса интерфейса
         public void Start()
         {
+            //Проверка минимальной суммы, необходимой для корректной работы приложения
             Console.Clear();
             if(bank <= 2000)
             {
@@ -106,6 +124,7 @@ namespace CoffeMachine.CoffeMachine
             }
             Console.WriteLine("\n\tДобро пожаловать!");
             string pas = Console.ReadLine();
+            //Обработка администрирования
             if(pas == "2789")
             {
                 Console.Clear();
@@ -144,10 +163,13 @@ namespace CoffeMachine.CoffeMachine
                         }
                 }
             }
-            
+
+            //Смена стратегии выбора
             CoffeMachineSelectStrategy = new SelectBeverage();
+            //Переход к следующему шагу работы приложения
             SelectBeverage();
         }
+        //Выбор напитка
         private void SelectBeverage()
         {
             Console.Clear();
@@ -169,12 +191,14 @@ namespace CoffeMachine.CoffeMachine
                 }
                 else
                 {
+                    //Смена стратегии выбора
                     CoffeMachineSelectStrategy = new SelectCondiments();
                     Console.Clear();
                     AddCondiments();
                 }
             }
         }
+        //Выбор добавок
         private void AddCondiments()
         {
             BeverageBase val;
@@ -205,8 +229,10 @@ namespace CoffeMachine.CoffeMachine
                     }
                 }
             } while (true);
+            //Переход к приготовлению
             Process();
         }
+        //Оплата и приготовление напитка
         private void Process() {
             Console.Clear();
             Console.WriteLine("\nВаш напиток: {0}.\nК оплате: {1}", drink.GetDescription(), drink.GetCost());
@@ -256,6 +282,7 @@ namespace CoffeMachine.CoffeMachine
                     }
             }
         }
+        //Отрисовка progress bar 
         private static void drawTextProgressBar(int progress, int total)
         {
             Console.CursorLeft = 0;
@@ -283,12 +310,14 @@ namespace CoffeMachine.CoffeMachine
             Console.CursorLeft = 35;
             Console.BackgroundColor = ConsoleColor.Black;
         }
+        //Финальный метод интерфейса пользователя
         private void Stop(bool isDone)
         {
             Console.Clear();
             if (isDone) 
             {
                 Console.WriteLine("\n\tНапиток готовится\n");
+                //progress bar
                 for (int i = 0; i < Convert.ToInt32(drink.GetCost()); i++)
                 {
                     Thread.Sleep(100);

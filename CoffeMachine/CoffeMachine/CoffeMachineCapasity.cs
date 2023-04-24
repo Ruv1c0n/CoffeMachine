@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace CoffeMachine.CoffeMachine
 {
+    //Хранилище ингредиентов
     public class CoffeMachineCapacity
     {
+        //Содержание продуктов в шт
         static int water_cap = 1000;
         static int coffee_cap = 500;
         static int milk_cap = 1000;

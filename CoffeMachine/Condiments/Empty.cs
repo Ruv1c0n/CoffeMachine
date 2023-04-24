@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace CoffeMachine.Condiments
 {
+    //Пустой элемент для обхода обработки исключений
     class Empty : CondimentsBase
     {
         private static double COST = 0;

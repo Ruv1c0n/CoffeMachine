@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace CoffeMachine.CoffeMachine
 {
+    //Выбор добавки
     class SelectCondiments: ISelect
     {
         public BeverageBase Select(CoffeMachineCapacity capacity, Dictionary<int, BeverageBase> condiments, Dictionary<int, BeverageBase> syrup, BeverageBase drink)

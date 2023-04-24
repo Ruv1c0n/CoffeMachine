@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoffeMachine.Beverage
 {
+    //Пустой элемент для обхода обработки исключений
     class Empty : BeverageBase
     {
         public Empty()
