@@ -10,6 +10,14 @@ namespace CoffeMachine.CoffeMachine
     //Выбор напитка
     class SelectBeverage : ISelect
     {
+        public ISelect ISelect
+        {
+            get => default(CoffeMachine.ISelect);
+            set
+            {
+            }
+        }
+
         public BeverageBase Select(CoffeMachineCapacity capacity, Dictionary<int, BeverageBase> beverage, Dictionary<int, BeverageBase> list2, BeverageBase drink)
         {
             Console.WriteLine();

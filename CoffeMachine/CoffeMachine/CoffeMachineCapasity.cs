@@ -20,6 +20,14 @@ namespace CoffeMachine.CoffeMachine
         static int syrop_chocolate_cap = 200;
         static int syrop_caramel_cap = 200;
 
+        public CCoffeMachine CCoffeMachine
+        {
+            get => default(CoffeMachine.CCoffeMachine);
+            set
+            {
+            }
+        }
+
         private bool isPossible(int val, int count = 1)
         {
             return val >= count;

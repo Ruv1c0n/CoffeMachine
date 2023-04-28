@@ -11,6 +11,14 @@ namespace CoffeMachine.CoffeMachine
     //Выбор добавки
     class SelectCondiments: ISelect
     {
+        public ISelect ISelect
+        {
+            get => default(CoffeMachine.ISelect);
+            set
+            {
+            }
+        }
+
         public BeverageBase Select(CoffeMachineCapacity capacity, Dictionary<int, BeverageBase> condiments, Dictionary<int, BeverageBase> syrup, BeverageBase drink)
         {
 

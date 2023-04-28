@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CoffeMachine.Beverage.Americano">
+    <Position X="9.5" Y="2.75" Width="1.25" />
+    <InheritanceLine Type="CoffeMachine.Beverage.BeverageBase" FixedToPoint="true">
+      <Path>
+        <Point X="14" Y="2.44" />
+        <Point X="14" Y="2.577" />
+        <Point X="10.125" Y="2.577" />
+        <Point X="10.125" Y="2.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Beverage\Americano.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.Beverage.BeverageBase">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAACAAAAAAAAAAIAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Beverage\BeverageBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.Beverage.BoiledWater">
+    <Position X="11" Y="2.75" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Beverage\BoiledWater.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.Beverage.Cappuccino">
+    <Position X="17.25" Y="2.75" Width="1.25" />
+    <InheritanceLine Type="CoffeMachine.Beverage.BeverageBase" FixedToPoint="true">
+      <Path>
+        <Point X="14" Y="2.44" />
+        <Point X="14" Y="2.577" />
+        <Point X="17.875" Y="2.577" />
+        <Point X="17.875" Y="2.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Beverage\Cappuccino.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.Beverage.Cocoa">
+    <Position X="11" Y="4.75" Width="1.25" />
+    <InheritanceLine Type="CoffeMachine.Beverage.BeverageBase" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="14" Y="2.44" />
+        <Point X="14" Y="2.577" />
+        <Point X="12.373" Y="2.577" />
+        <Point X="12.373" Y="5.562" />
+        <Point X="12.25" Y="5.562" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Beverage\Cocoa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.Beverage.Doppio">
+    <Position X="12.5" Y="4.75" Width="1.25" />
+    <InheritanceLine Type="CoffeMachine.Beverage.BeverageBase" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="14" Y="2.44" />
+        <Point X="14" Y="5.562" />
+        <Point X="13.75" Y="5.562" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Beverage\Doppio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.Beverage.Empty">
+    <Position X="12.5" Y="2.75" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Beverage\Empty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.Beverage.Espresso">
+    <Position X="14.25" Y="2.75" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Beverage\Espresso.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.Beverage.FlatWhite">
+    <Position X="15.75" Y="2.75" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Beverage\FlatWhite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.Beverage.HotChocolate">
+    <Position X="14.25" Y="4.75" Width="1.25" />
+    <InheritanceLine Type="CoffeMachine.Beverage.BeverageBase" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="14" Y="2.44" />
+        <Point X="14" Y="5.562" />
+        <Point X="14.25" Y="5.562" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Beverage\HotChocolate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.Beverage.Latte">
+    <Position X="15.75" Y="4.75" Width="1.25" />
+    <InheritanceLine Type="CoffeMachine.Beverage.BeverageBase" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="14" Y="2.44" />
+        <Point X="14" Y="2.577" />
+        <Point X="15.627" Y="2.577" />
+        <Point X="15.627" Y="5.562" />
+        <Point X="15.75" Y="5.562" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Beverage\Latte.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.Beverage.Macciato">
+    <Position X="17.25" Y="4.75" Width="1.25" />
+    <InheritanceLine Type="CoffeMachine.Beverage.BeverageBase" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="14" Y="2.44" />
+        <Point X="14" Y="2.577" />
+        <Point X="17.127" Y="2.577" />
+        <Point X="17.127" Y="5.562" />
+        <Point X="17.25" Y="5.562" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Beverage\Macciato.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.CoffeMachine.CCoffeMachine">
+    <Position X="3.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAEACEAACAAEAAIAiIAWAAAAAAAAAAgIABAAAABAAA=</HashCode>
+      <FileName>CoffeMachine\CCoffeMachine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.CoffeMachine.CoffeMachineCapacity">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <AssociationLine Name="CCoffeMachine" Type="CoffeMachine.CoffeMachine.CCoffeMachine" FixedFromPoint="true">
+      <Path>
+        <Point X="2.25" Y="0.812" />
+        <Point X="3.5" Y="0.812" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>CQAAEAAAAMMAIAAAAAKEwBEAAyAAgDAIIAIAAABAAKA=</HashCode>
+      <FileName>CoffeMachine\CoffeMachineCapasity.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CCoffeMachine" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CoffeMachine.CoffeMachine.SelectCondiments" BaseTypeListCollapsed="true">
+    <Position X="7" Y="3.5" Width="1.5" />
+    <AssociationLine Name="ISelect" Type="CoffeMachine.CoffeMachine.ISelect" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.5" Y="4.052" />
+        <Point X="9.258" Y="4.052" />
+        <Point X="9.258" Y="0.623" />
+        <Point X="8.5" Y="0.623" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>CoffeMachine\SelectCondiments.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ISelect" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.1" Collapsed="true" />
+  </Class>
+  <Class Name="CoffeMachine.Condiments.ConChocolate">
+    <Position X="11.75" Y="6.5" Width="1.25" />
+    <InheritanceLine Type="CoffeMachine.Condiments.CondimentsBase" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.125" Y="5.983" />
+        <Point X="10.125" Y="6.425" />
+        <Point X="12.312" Y="6.425" />
+        <Point X="12.312" Y="6.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAQAAAAAAAAABAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Condiments\ConChocolate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.Condiments.ConCocoa">
+    <Position X="8.75" Y="6.5" Width="1.25" />
+    <InheritanceLine Type="CoffeMachine.Condiments.CondimentsBase" FixedToPoint="true">
+      <Path>
+        <Point X="10.125" Y="5.983" />
+        <Point X="10.125" Y="6.425" />
+        <Point X="9.375" Y="6.425" />
+        <Point X="9.375" Y="6.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAQAAAAAAAAABAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Condiments\ConCocoa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.Condiments.ConCoffee">
+    <Position X="10.25" Y="6.5" Width="1.25" />
+    <InheritanceLine Type="CoffeMachine.Condiments.CondimentsBase" FixedToPoint="true">
+      <Path>
+        <Point X="10.125" Y="5.983" />
+        <Point X="10.125" Y="6.425" />
+        <Point X="10.875" Y="6.425" />
+        <Point X="10.875" Y="6.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAQAAAAAAAAABAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Condiments\ConCoffee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.Condiments.CondimentsBase">
+    <Position X="9.5" Y="4.75" Width="1.25" />
+    <InheritanceLine Type="CoffeMachine.Beverage.BeverageBase" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="14" Y="2.44" />
+        <Point X="14" Y="2.577" />
+        <Point X="10.873" Y="2.577" />
+        <Point X="10.873" Y="5.562" />
+        <Point X="10.75" Y="5.562" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Condiments\CondimentsBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.Condiments.ConMilk">
+    <Position X="10.25" Y="9.25" Width="1.25" />
+    <InheritanceLine Type="CoffeMachine.Condiments.CondimentsBase" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.125" Y="5.983" />
+        <Point X="10.125" Y="10.562" />
+        <Point X="10.25" Y="10.562" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAQAAAAAAAAABAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Condiments\ConMilk.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.Condiments.ConSugar">
+    <Position X="7.25" Y="6.5" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAQAAAAAAAAABAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Condiments\ConSugar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.Condiments.ConSyrup">
+    <Position X="7.25" Y="9.25" Width="1.25" />
+    <InheritanceLine Type="CoffeMachine.Condiments.CondimentsBase" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.125" Y="5.983" />
+        <Point X="10.125" Y="6.425" />
+        <Point X="8.623" Y="6.425" />
+        <Point X="8.623" Y="10.562" />
+        <Point X="8.5" Y="10.562" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAQAAAIAAAAABAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Condiments\ConSyrup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.Condiments.ConWater">
+    <Position X="8.75" Y="9.25" Width="1.25" />
+    <InheritanceLine Type="CoffeMachine.Condiments.CondimentsBase" FixedToPoint="true">
+      <Path>
+        <Point X="10.125" Y="5.983" />
+        <Point X="10.125" Y="10.562" />
+        <Point X="10" Y="10.562" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAQAAAAAAAAABAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Condiments\ConWater.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.Condiments.Empty">
+    <Position X="11.75" Y="9.25" Width="1.25" />
+    <InheritanceLine Type="CoffeMachine.Condiments.CondimentsBase" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.125" Y="5.983" />
+        <Point X="10.125" Y="6.43" />
+        <Point X="11.62" Y="6.43" />
+        <Point X="11.62" Y="10.562" />
+        <Point X="11.75" Y="10.562" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Condiments\Empty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.Condiments.SyrupCaramel">
+    <Position X="7.25" Y="12" Width="1.25" />
+    <InheritanceLine Type="CoffeMachine.Condiments.ConSyrup" FixedToPoint="true">
+      <Path>
+        <Point X="7.875" Y="11.704" />
+        <Point X="7.875" Y="12" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Condiments\SyrupCaramel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.Condiments.SyrupChocolate">
+    <Position X="5.75" Y="12" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Condiments\SyrupChocolate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.Condiments.SyrupVanila">
+    <Position X="8.75" Y="12" Width="1.25" />
+    <InheritanceLine Type="CoffeMachine.Condiments.ConSyrup" FixedToPoint="true">
+      <Path>
+        <Point X="7.875" Y="11.704" />
+        <Point X="7.875" Y="11.846" />
+        <Point X="9.312" Y="11.846" />
+        <Point X="9.312" Y="12" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Condiments\SyrupVanila.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeMachine.CoffeMachine.SelectBeverage" BaseTypeListCollapsed="true">
+    <Position X="7" Y="2" Width="1.5" />
+    <AssociationLine Name="ISelect" Type="CoffeMachine.CoffeMachine.ISelect" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.5" Y="2.614" />
+        <Point X="8.828" Y="2.614" />
+        <Point X="8.828" Y="0.938" />
+        <Point X="8.5" Y="0.938" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>CoffeMachine\SelectBeverage.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ISelect" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.1" Collapsed="true" />
+  </Class>
+  <Interface Name="CoffeMachine.CoffeMachine.ISelect">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <AssociationLine Name="CCoffeMachine" Type="CoffeMachine.CoffeMachine.CCoffeMachine" FixedFromPoint="true">
+      <Path>
+        <Point X="7" Y="0.812" />
+        <Point X="5.75" Y="0.812" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>CoffeMachine\ISelect.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CCoffeMachine" />
+    </ShowAsAssociation>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
