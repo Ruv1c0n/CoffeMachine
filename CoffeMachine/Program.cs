@@ -8,8 +8,10 @@ namespace CoffeMachine
     {
         static void Main(string[] args)
         {
+            Console.SetWindowSize(55, 25);
             CCoffeMachine cm = new CCoffeMachine();
-            cm.Start();
+            cm.TurnOn();
+            cm.TurnOff();
         }
     }
 }

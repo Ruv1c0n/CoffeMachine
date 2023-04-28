@@ -1,22 +1,11 @@
 ﻿using CoffeMachine.Beverage;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CoffeMachine.CoffeMachine
 {
     //Выбор напитка
     class SelectBeverage : ISelect
     {
-        public ISelect ISelect
-        {
-            get => default(CoffeMachine.ISelect);
-            set
-            {
-            }
-        }
+        ISelect ISelect{get => null;set{}}
 
         public BeverageBase Select(CoffeMachineCapacity capacity, Dictionary<int, BeverageBase> beverage, Dictionary<int, BeverageBase> list2, BeverageBase drink)
         {

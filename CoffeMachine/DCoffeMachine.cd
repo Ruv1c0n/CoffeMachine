@@ -144,7 +144,7 @@
   <Class Name="CoffeMachine.CoffeMachine.CCoffeMachine">
     <Position X="3.5" Y="0.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAEACEAACAAEAAIAiIAWAAAAAAAAAAgIABAAAABAAA=</HashCode>
+      <HashCode>ABAEAKEAACAAEAAIAiIAWAAAAAAAAAAgYABAAAABAAA=</HashCode>
       <FileName>CoffeMachine\CCoffeMachine.cs</FileName>
     </TypeIdentifier>
   </Class>

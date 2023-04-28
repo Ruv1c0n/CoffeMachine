@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CoffeMachine.CoffeMachine
+﻿namespace CoffeMachine.CoffeMachine
 {
     //Хранилище ингредиентов
     public class CoffeMachineCapacity
@@ -20,13 +14,7 @@ namespace CoffeMachine.CoffeMachine
         static int syrop_chocolate_cap = 200;
         static int syrop_caramel_cap = 200;
 
-        public CCoffeMachine CCoffeMachine
-        {
-            get => default(CoffeMachine.CCoffeMachine);
-            set
-            {
-            }
-        }
+        CCoffeMachine CCoffeMachine{get => null;set{}}
 
         private bool isPossible(int val, int count = 1)
         {

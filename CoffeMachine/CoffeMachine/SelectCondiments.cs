@@ -1,23 +1,12 @@
 ﻿using CoffeMachine.Beverage;
 using CoffeMachine.Condiments;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CoffeMachine.CoffeMachine
 {
     //Выбор добавки
     class SelectCondiments: ISelect
     {
-        public ISelect ISelect
-        {
-            get => default(CoffeMachine.ISelect);
-            set
-            {
-            }
-        }
+        ISelect ISelect { get => null; set { } }
 
         public BeverageBase Select(CoffeMachineCapacity capacity, Dictionary<int, BeverageBase> condiments, Dictionary<int, BeverageBase> syrup, BeverageBase drink)
         {
